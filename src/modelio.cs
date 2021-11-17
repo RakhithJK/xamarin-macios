@@ -26,13 +26,16 @@ using NVector3d = global::OpenTK.NVector3d;
 using Vector4 = global::OpenTK.Vector4;
 using Vector4i = global::OpenTK.Vector4i;
 using Vector4d = global::OpenTK.Vector4d;
-#if XAMCORE_4_0
+#if NET
 using Matrix2 = global::OpenTK.NMatrix2;
 using Matrix3 = global::OpenTK.NMatrix3;
-using Matrix4 = global::OpenTK.NMatrix4;
 #else
 using Matrix2 = global::OpenTK.Matrix2;
 using Matrix3 = global::OpenTK.Matrix3;
+#endif //!NET
+#if XAMCORE_4_0
+using Matrix4 = global::OpenTK.NMatrix4;
+#else
 using Matrix4 = global::OpenTK.Matrix4;
 using MatrixFloat2x2 = global::OpenTK.NMatrix2;
 using MatrixFloat3x3 = global::OpenTK.NMatrix3;

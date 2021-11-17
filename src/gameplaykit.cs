@@ -18,7 +18,9 @@ using Vector2d = global::OpenTK.Vector2d;
 using Vector2i = global::OpenTK.Vector2i;
 using Vector3 = global::OpenTK.Vector3;
 using Vector3d = global::OpenTK.Vector3d;
+#if !NET
 using Matrix3 = global::OpenTK.Matrix3;
+#endif
 using MatrixFloat3x3 = global::OpenTK.NMatrix3;
 
 #if MONOMAC
@@ -138,7 +140,7 @@ namespace GameplayKit {
 		[Export ("rightHanded")]
 		bool RightHanded { get; set; }
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use 'Rotation3x3' instead.")]
 		[Export ("rotation", ArgumentSemantic.Assign)]
 		Matrix3 Rotation { 

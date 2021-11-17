@@ -140,6 +140,7 @@ namespace OpenTK
 			return !left.Equals (right);
 		}
 
+#if !NET
 		public static explicit operator global::OpenTK.Matrix3 (NMatrix3 value)
 		{
 			return new global::OpenTK.Matrix3 (
@@ -155,6 +156,7 @@ namespace OpenTK
 				value.R1C0, value.R1C1, value.R1C2,
 				value.R2C0, value.R2C1, value.R2C2);
 		}
+#endif // !NET
 
 		public override string ToString ()
 		{

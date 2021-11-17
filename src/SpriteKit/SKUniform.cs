@@ -14,8 +14,10 @@ using ObjCRuntime;
 using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
 using Vector4 = global::OpenTK.Vector4;
+#if !NET
 using Matrix2 = global::OpenTK.Matrix2;
 using Matrix3 = global::OpenTK.Matrix3;
+#endif // !NET
 using Matrix4 = global::OpenTK.Matrix4;
 using MatrixFloat2x2 = global::OpenTK.NMatrix2;
 using MatrixFloat3x3 = global::OpenTK.NMatrix3;
@@ -76,7 +78,7 @@ namespace SpriteKit {
 				InitializeHandle (InitWithNameFloatVector4 (name, value), "initWithName:floatVector4:");
 		}
 
-#if !XAMCORE_4_0
+#if !NET
 		// Apple deprecated initWithName:floatMatrix2: in macOS10.12/iOS10.0
 		// and made available initWithName:matrixFloat2x2: so we invoke
 		// the right one at runtime depending on which OS version we are running
@@ -114,7 +116,9 @@ namespace SpriteKit {
 			else
 				InitializeHandle (InitWithNameFloatMatrix3 (name, value), "initWithName:floatMatrix3:");
 		}
+#endif // !NET
 
+#if !XAMCORE_4_0
 		// Apple deprecated initWithName:floatMatrix4: in macOS10.12/iOS10.0
 		// and made available initWithName:matrixFloat4x4: so we invoke
 		// the right one at runtime depending on which OS version we are running
@@ -192,7 +196,7 @@ namespace SpriteKit {
 			}
 		}
 
-#if !XAMCORE_4_0
+#if !NET
 		// Apple deprecated floatMatrix2Value in macOS10.12/iOS10.0
 		// and made available matrixFloat2x2Value so we invoke
 		// the right one at runtime depending on which OS version we are running
@@ -246,7 +250,9 @@ namespace SpriteKit {
 					_FloatMatrix3Value = value;
 			}
 		}
+#endif // !NET
 
+#if !XAMCORE_4_0
 		// Apple deprecated floatMatrix4Value in macOS10.12/iOS10.0
 		// and made available matrixFloat4x4Value so we invoke
 		// the right one at runtime depending on which OS version we are running

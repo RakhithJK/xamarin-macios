@@ -25,7 +25,11 @@ SOFTWARE.
 
 using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
+#if NET
+using Matrix3 = global::OpenTK.NMatrix3;
+#else
 using Matrix3 = global::OpenTK.Matrix3;
+#endif
 using Vector4 = global::OpenTK.Vector4;
 using Quaternion = global::OpenTK.Quaternion;
 using MathHelper = global::OpenTK.MathHelper;
@@ -92,16 +96,16 @@ namespace SceneKit
             double scale = System.Math.Pow(matrix.Determinant, 1.0d / 3.0d);
 	    float x, y, z;
 	    
-            w = (float) (System.Math.Sqrt(System.Math.Max(0, scale + matrix[0, 0] + matrix[1, 1] + matrix[2, 2])) / 2);
-            x = (float) (System.Math.Sqrt(System.Math.Max(0, scale + matrix[0, 0] - matrix[1, 1] - matrix[2, 2])) / 2);
-            y = (float) (System.Math.Sqrt(System.Math.Max(0, scale - matrix[0, 0] + matrix[1, 1] - matrix[2, 2])) / 2);
-            z = (float) (System.Math.Sqrt(System.Math.Max(0, scale - matrix[0, 0] - matrix[1, 1] + matrix[2, 2])) / 2);
+            w = (float) (System.Math.Sqrt(System.Math.Max(0, scale + matrix.R0C0 + matrix.R1C1 + matrix.R2C2)) / 2);
+            x = (float) (System.Math.Sqrt(System.Math.Max(0, scale + matrix.R0C0 - matrix.R1C1 - matrix.R2C2)) / 2);
+            y = (float) (System.Math.Sqrt(System.Math.Max(0, scale - matrix.R0C0 + matrix.R1C1 - matrix.R2C2)) / 2);
+            z = (float) (System.Math.Sqrt(System.Math.Max(0, scale - matrix.R0C0 - matrix.R1C1 + matrix.R2C2)) / 2);
 
 	    xyz = new Vector3 (x, y, z);
 	    
-            if (matrix[2, 1] - matrix[1, 2] < 0) X = -X;
-            if (matrix[0, 2] - matrix[2, 0] < 0) Y = -Y;
-            if (matrix[1, 0] - matrix[0, 1] < 0) Z = -Z;
+            if (matrix.R2C1 - matrix.R1C2 < 0) X = -X;
+            if (matrix.R0C2 - matrix.R2C0 < 0) Y = -Y;
+            if (matrix.R1C0 - matrix.R0C1 < 0) Z = -Z;
         }
 
 	public SCNQuaternion (Quaternion openTkQuaternion) : this (new SCNVector3 (openTkQuaternion.XYZ), openTkQuaternion.W)

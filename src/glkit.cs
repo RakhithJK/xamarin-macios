@@ -36,8 +36,9 @@ using ModelIO;
 using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
 using Vector4 = global::OpenTK.Vector4;
-using Matrix2 = global::OpenTK.Matrix2;
+#if !NET
 using Matrix3 = global::OpenTK.Matrix3;
+#endif // !NET
 using Matrix4 = global::OpenTK.Matrix4;
 using Quaternion = global::OpenTK.Quaternion;
 using MathHelper = global::OpenTK.MathHelper;
@@ -252,8 +253,10 @@ namespace GLKit {
 	[Deprecated (PlatformName.MacOSX, 10,14, message: "Use 'Metal' instead.")]
 	[BaseType (typeof (GLKEffectProperty))]
 	interface GLKEffectPropertyTransform {
+#if !NET
 		[Export ("normalMatrix")]
 		Matrix3 NormalMatrix { get;  }
+#endif
 
 		[Export ("modelviewMatrix", ArgumentSemantic.Assign)]
 		Matrix4 ModelViewMatrix { [Align (16)] get; set; }
@@ -341,8 +344,10 @@ namespace GLKit {
 		[Export ("textureCubeMap")]
 		GLKEffectPropertyTexture TextureCubeMap { get;  }
 
+#if !NET
 		[Export ("matrix", ArgumentSemantic.Assign)]
 		Matrix3 Matrix { get; set;  }
+#endif
 	}
 	
 	[Deprecated (PlatformName.iOS, 12,0, message: "Use 'Metal' instead.")]
