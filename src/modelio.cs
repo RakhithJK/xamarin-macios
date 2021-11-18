@@ -21,30 +21,28 @@ using Vector2d = global::OpenTK.Vector2d;
 using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
 using Vector3i = global::OpenTK.Vector3i;
-using NVector3 = global::OpenTK.NVector3;
-using NVector3d = global::OpenTK.NVector3d;
 using Vector4 = global::OpenTK.Vector4;
 using Vector4i = global::OpenTK.Vector4i;
 using Vector4d = global::OpenTK.Vector4d;
 #if NET
-using Matrix2 = global::OpenTK.NMatrix2;
-using Matrix3 = global::OpenTK.NMatrix3;
+using NVector3d = global::CoreGraphics.NVector3d;
+using NVector3 = global::CoreGraphics.NVector3;
+using Matrix4 = global::CoreGraphics.NMatrix4;
+using MatrixFloat2x2 = global::CoreGraphics.NMatrix2;
+using MatrixFloat3x3 = global::CoreGraphics.NMatrix3;
+using MatrixFloat4x4 = global::CoreGraphics.NMatrix4;
+using NMatrix4 = global::CoreGraphics.NMatrix4;
+using NMatrix4d = global::CoreGraphics.NMatrix4d;
 #else
-using Matrix2 = global::OpenTK.Matrix2;
-using Matrix3 = global::OpenTK.Matrix3;
-#endif //!NET
-#if XAMCORE_4_0
-using Matrix4 = global::OpenTK.NMatrix4;
-#else
+using NVector3d = global::OpenTK.NVector3d;
+using NVector3 = global::OpenTK.NVector3;
 using Matrix4 = global::OpenTK.Matrix4;
-using MatrixFloat2x2 = global::OpenTK.NMatrix2;
-using MatrixFloat3x3 = global::OpenTK.NMatrix3;
 using MatrixFloat4x4 = global::OpenTK.NMatrix4;
+using NMatrix4 = global::OpenTK.NMatrix4;
+using NMatrix4d = global::OpenTK.NMatrix4d;
 #endif
 using Quaternion = global::OpenTK.Quaternion;
 using Quaterniond = global::OpenTK.Quaterniond;
-using NMatrix4 = global::OpenTK.NMatrix4;
-using NMatrix4d = global::OpenTK.NMatrix4d;
 using MathHelper = global::OpenTK.MathHelper;
 #if MONOMAC
 using AppKit;
@@ -297,14 +295,14 @@ namespace ModelIO {
 	interface MDLCamera
 	{
 		[Export ("projectionMatrix")]
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use 'ProjectionMatrix4x4' instead.")]
 #endif
 		Matrix4 ProjectionMatrix {
 			[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")] get;
 		}
 
-#if !XAMCORE_4_0
+#if !NET
 		[Sealed]
 		[Export ("projectionMatrix")]
 		MatrixFloat4x4 ProjectionMatrix4x4 {
@@ -617,13 +615,13 @@ namespace ModelIO {
 
 		[Export ("initWithName:semantic:matrix4x4:")]
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use the '(string, MDLMaterialSemantic, MatrixFloat4x4)' overload instead.")]
 #endif
 		NativeHandle Constructor (string name, MDLMaterialSemantic semantic, Matrix4 value);
 
 
-#if !XAMCORE_4_0
+#if !NET
 		[Sealed]
 		[Export ("initWithName:semantic:matrix4x4:")]
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
@@ -1830,14 +1828,14 @@ namespace ModelIO {
 		[Export ("initWithTransformComponent:resetsTransform:")]
 		NativeHandle Constructor (IMDLTransformComponent component, bool resetsTransform);
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use the '(MatrixFloat4x4)' overload instead.")]
 #endif
 		[Export ("initWithMatrix:")]
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
 		NativeHandle Constructor (Matrix4 matrix);
 
-#if !XAMCORE_4_0
+#if !NET
 		[Sealed]
 		[Export ("initWithMatrix:")]
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
@@ -1854,7 +1852,7 @@ namespace ModelIO {
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
 		NativeHandle Constructor (Matrix4 matrix, bool resetsTransform);
 
-#if !XAMCORE_4_0
+#if !NET
 		[Sealed]
 		[iOS (10,0), Mac (10,12), TV (10,0)]
 		[Export ("initWithMatrix:resetsTransform:")]

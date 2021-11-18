@@ -18,10 +18,12 @@ using Vector2d = global::OpenTK.Vector2d;
 using Vector2i = global::OpenTK.Vector2i;
 using Vector3 = global::OpenTK.Vector3;
 using Vector3d = global::OpenTK.Vector3d;
-#if !NET
+#if NET
+using MatrixFloat3x3 = global::CoreGraphics.NMatrix3;
+#else
 using Matrix3 = global::OpenTK.Matrix3;
-#endif
 using MatrixFloat3x3 = global::OpenTK.NMatrix3;
+#endif
 
 #if MONOMAC
 using SKColor = AppKit.NSColor;

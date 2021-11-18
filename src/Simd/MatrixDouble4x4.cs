@@ -14,7 +14,13 @@
 using System;
 using System.Runtime.InteropServices;
 
+using Vector4d = global::OpenTK.Vector4d;
+
+#if NET
+namespace CoreGraphics
+#else
 namespace OpenTK
+#endif
 {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct NMatrix4d : IEquatable<NMatrix4d>

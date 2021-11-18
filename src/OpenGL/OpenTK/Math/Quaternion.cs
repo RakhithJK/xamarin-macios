@@ -68,7 +68,7 @@ namespace OpenTK
         { }
 
 #if NET
-        public Quaternion (ref NMatrix3 matrix)
+        public Quaternion (ref CoreGraphics.NMatrix3 matrix)
 #else
         public Quaternion (ref Matrix3 matrix)
 #endif

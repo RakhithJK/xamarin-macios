@@ -19,7 +19,11 @@ using Metal;
 using ObjCRuntime;
 using ImageIO;
 
+#if NET
+using Matrix3 = global::CoreGraphics.NMatrix3;
+#else
 using Matrix3 = global::OpenTK.NMatrix3;
+#endif
 using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
 

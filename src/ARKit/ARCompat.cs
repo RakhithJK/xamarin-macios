@@ -9,8 +9,11 @@
 
 using System;
 using Vector2 = global::OpenTK.Vector2;
+#if NET
+using Vector3 = global::CoreGraphics.NVector3;
+#else
 using Vector3 = global::OpenTK.NVector3;
-
+#endif
 #nullable enable
 
 namespace ARKit {

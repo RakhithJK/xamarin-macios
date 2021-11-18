@@ -13,9 +13,11 @@
 using System;
 using System.Runtime.InteropServices;
 
-using VectorFloat3 = global::OpenTK.NVector3;
-
+#if NET
+namespace CoreGraphics
+#else
 namespace OpenTK
+#endif
 {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct NMatrix3 : IEquatable<NMatrix3>

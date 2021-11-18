@@ -25,9 +25,15 @@ using SceneKit;
 using UIKit;
 
 using Vector2 = global::OpenTK.Vector2;
+#if NET
+using Vector3 = global::CoreGraphics.NVector3;
+using Matrix3 = global::CoreGraphics.NMatrix3;
+using Matrix4 = global::CoreGraphics.NMatrix4;
+#else
 using Vector3 = global::OpenTK.NVector3;
 using Matrix3 = global::OpenTK.NMatrix3;
 using Matrix4 = global::OpenTK.NMatrix4;
+#endif
 
 #if !NET
 using NativeHandle = System.IntPtr;

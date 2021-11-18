@@ -13,7 +13,13 @@
 using System;
 using System.Runtime.InteropServices;
 
+using VectorFloat4 = global::OpenTK.Vector4;
+
+#if NET
+namespace CoreGraphics
+#else
 namespace OpenTK
+#endif
 {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct NMatrix4 : IEquatable<NMatrix4>
@@ -45,7 +51,7 @@ namespace OpenTK
 			M44 = 1f,
 		};
 
-		public NMatrix4 (global::OpenTK.Vector4 row0, global::OpenTK.Vector4 row1, global::OpenTK.Vector4 row2, global::OpenTK.Vector4 row3)
+		public NMatrix4 (VectorFloat4 row0, VectorFloat4 row1, VectorFloat4 row2, VectorFloat4 row3)
 		{
 			M11 = row0.X;
 			M21 = row1.X;
@@ -89,9 +95,9 @@ namespace OpenTK
 			M44 = m44;
 		}
 
-		public Vector4 Column0 {
+		public VectorFloat4 Column0 {
 			get {
-				return new Vector4 (M11, M21, M31, M41);
+				return new VectorFloat4 (M11, M21, M31, M41);
 			}
 			set {
 				M11 = value.X;
@@ -101,9 +107,9 @@ namespace OpenTK
 			}
 		}
 
-		public Vector4 Column1 {
+		public VectorFloat4 Column1 {
 			get {
-				return new Vector4 (M12, M22, M32, M42);
+				return new VectorFloat4 (M12, M22, M32, M42);
 			}
 			set {
 				M12 = value.X;
@@ -113,9 +119,9 @@ namespace OpenTK
 			}
 		}
 
-		public Vector4 Column2 {
+		public VectorFloat4 Column2 {
 			get {
-				return new Vector4 (M13, M23, M33, M43);
+				return new VectorFloat4 (M13, M23, M33, M43);
 			}
 			set {
 				M13 = value.X;
@@ -125,9 +131,9 @@ namespace OpenTK
 			}
 		}
 
-		public Vector4 Column3 {
+		public VectorFloat4 Column3 {
 			get {
-				return new Vector4 (M14, M24, M34, M44);
+				return new VectorFloat4 (M14, M24, M34, M44);
 			}
 			set {
 				M14 = value.X;
@@ -137,9 +143,9 @@ namespace OpenTK
 			}
 		}
 
-		public Vector4 Row0 {
+		public VectorFloat4 Row0 {
 			get {
-				return new Vector4 (M11, M12, M13, M14);
+				return new VectorFloat4 (M11, M12, M13, M14);
 			}
 			set {
 				M11 = value.X;
@@ -149,9 +155,9 @@ namespace OpenTK
 			}
 		}
 
-		public Vector4 Row1 {
+		public VectorFloat4 Row1 {
 			get {
-				return new Vector4 (M21, M22, M23, M24);
+				return new VectorFloat4 (M21, M22, M23, M24);
 			}
 			set {
 				M21 = value.X;
@@ -161,9 +167,9 @@ namespace OpenTK
 			}
 		}
 
-		public Vector4 Row2 {
+		public VectorFloat4 Row2 {
 			get {
-				return new Vector4 (M31, M32, M33, M34);
+				return new VectorFloat4 (M31, M32, M33, M34);
 			}
 			set {
 				M31 = value.X;
@@ -173,9 +179,9 @@ namespace OpenTK
 			}
 		}
 
-		public Vector4 Row3 {
+		public VectorFloat4 Row3 {
 			get {
-				return new Vector4 (M41, M42, M43, M44);
+				return new VectorFloat4 (M41, M42, M43, M44);
 			}
 			set {
 				M41 = value.X;

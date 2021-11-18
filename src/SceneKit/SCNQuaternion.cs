@@ -26,7 +26,7 @@ SOFTWARE.
 using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
 #if NET
-using Matrix3 = global::OpenTK.NMatrix3;
+using Matrix3 = global::CoreGraphics.NMatrix3;
 #else
 using Matrix3 = global::OpenTK.Matrix3;
 #endif
