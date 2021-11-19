@@ -27,17 +27,15 @@ using Metal;
 
 using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
-#if !NET
-using Matrix2 = global::OpenTK.Matrix2;
-using Matrix3 = global::OpenTK.Matrix3;
-#endif
-using Matrix4 = global::OpenTK.Matrix4;
 #if NET
 using MatrixFloat2x2 = global::CoreGraphics.NMatrix2;
 using MatrixFloat3x3 = global::CoreGraphics.NMatrix3;
 using MatrixFloat4x4 = global::CoreGraphics.NMatrix4;
 using VectorFloat3 = global::CoreGraphics.NVector3;
 #else
+using Matrix2 = global::OpenTK.Matrix2;
+using Matrix3 = global::OpenTK.Matrix3;
+using Matrix4 = global::OpenTK.Matrix4;
 using MatrixFloat2x2 = global::OpenTK.NMatrix2;
 using MatrixFloat3x3 = global::OpenTK.NMatrix3;
 using MatrixFloat4x4 = global::OpenTK.NMatrix4;
@@ -1902,16 +1900,16 @@ namespace SpriteKit {
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
 		NativeHandle Constructor (string name, MatrixFloat3x3 value);
 
-#if !XAMCORE_4_0
+#if !NET
 		[Internal]
 		[NoWatch]
 		[Deprecated (PlatformName.iOS, 10, 0)]
 		[Deprecated (PlatformName.MacOSX, 10, 12)]
 		[Export ("initWithName:floatMatrix4:")]
 		IntPtr InitWithNameFloatMatrix4 (string name, Matrix4 value);
-#endif
+#endif // !NET
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use the '(string, MatrixFloat4x4)' overload instead.")]
 		[iOS (10,0)][Mac (10,12)]
 		[TV (10,0)]
@@ -1923,8 +1921,8 @@ namespace SpriteKit {
 #else
 		[Internal]
 		IntPtr InitWithNameMatrixFloat4x4 (string name, Matrix4 value);
-#endif
-#endif
+#endif // WATCH
+#endif // !NET
 
 		[iOS (10,0)][Mac (10,12)]
 		[TV (10,0)]
@@ -2067,16 +2065,16 @@ namespace SpriteKit {
 			[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")] set;
 		}
 
-#if !XAMCORE_4_0
+#if !NET
 		[Internal]
 		[NoWatch]
 		[Deprecated (PlatformName.iOS, 10, 0)]
 		[Deprecated (PlatformName.MacOSX, 10, 12)]
 		[Export ("floatMatrix4Value")]
 		Matrix4 _FloatMatrix4Value { get; set; }
-#endif
+#endif // !NET
 
-#if !XAMCORE_4_0 && WATCH
+#if !NET && WATCH
 		[Obsolete ("Use 'FloatMatrix4x4Value' instead.")]
 		[iOS (10,0)][Mac (10,12)]
 		[TV (10,0)]
@@ -2163,7 +2161,7 @@ namespace SpriteKit {
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
 		SKUniform Create (string name, MatrixFloat3x3 value);
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use 'the '(string, MatrixFloat4x4)' overload instead.")]
 		[iOS (10,0)][Mac (10,12)]
 		[TV (10, 0)]
@@ -2171,7 +2169,7 @@ namespace SpriteKit {
 		[Export ("uniformWithName:matrixFloat4x4:")]
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
 		SKUniform Create (string name, Matrix4 value);
-#endif
+#endif // !NET
 
 		[iOS (10,0)][Mac (10,12)]
 		[TV (10, 0)]

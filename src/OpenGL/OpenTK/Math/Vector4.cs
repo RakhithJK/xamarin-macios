@@ -933,6 +933,7 @@ namespace OpenTK
 
         #region Transform
 
+#if !NET
         /// <summary>Transform a Vector by the given Matrix</summary>
         /// <param name="vec">The vector to transform</param>
         /// <param name="mat">The desired transformation</param>
@@ -956,7 +957,7 @@ namespace OpenTK
                 vec.X * mat.Row0.Z + vec.Y * mat.Row1.Z + vec.Z * mat.Row2.Z + vec.W * mat.Row3.Z,
                 vec.X * mat.Row0.W + vec.Y * mat.Row1.W + vec.Z * mat.Row2.W + vec.W * mat.Row3.W);
         }
-
+#endif
         /// <summary>
         /// Transforms a vector by a quaternion rotation.
         /// </summary>

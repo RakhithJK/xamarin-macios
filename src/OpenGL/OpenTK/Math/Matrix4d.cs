@@ -1214,4 +1214,4 @@ namespace OpenTK
         #endregion
     }
 }
-#endif
+#endif // !NET

@@ -288,6 +288,7 @@ namespace OpenTK
 			return !left.Equals (right);
 		}
 
+#if !NET
 		public static explicit operator global::OpenTK.Matrix4 (NMatrix4 value)
 		{
 			return new global::OpenTK.Matrix4 (
@@ -301,6 +302,7 @@ namespace OpenTK
 		{
 			return new NMatrix4 (value.Row0, value.Row1, value.Row2, value.Row3);
 		}
+#endif
 
 		public override string ToString ()
 		{

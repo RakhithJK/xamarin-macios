@@ -21,11 +21,11 @@ using MatrixFloat4x4 = global::CoreGraphics.NMatrix4;
 #else
 using Matrix2 = global::OpenTK.Matrix2;
 using Matrix3 = global::OpenTK.Matrix3;
+using Matrix4 = global::OpenTK.Matrix4;
 using MatrixFloat2x2 = global::OpenTK.NMatrix2;
 using MatrixFloat3x3 = global::OpenTK.NMatrix3;
 using MatrixFloat4x4 = global::OpenTK.NMatrix4;
 #endif // NET
-using Matrix4 = global::OpenTK.Matrix4;
 
 #nullable enable
 
@@ -122,7 +122,7 @@ namespace SpriteKit {
 		}
 #endif // !NET
 
-#if !XAMCORE_4_0
+#if !NET
 		// Apple deprecated initWithName:floatMatrix4: in macOS10.12/iOS10.0
 		// and made available initWithName:matrixFloat4x4: so we invoke
 		// the right one at runtime depending on which OS version we are running
@@ -141,7 +141,7 @@ namespace SpriteKit {
 			else
 				InitializeHandle (InitWithNameFloatMatrix4 (name, value), "initWithName:floatMatrix4:");
 		}
-#endif // !XAMCORE_4_0
+#endif // !NET
 
 		// Apple deprecated floatVector2Value in macOS10.12/iOS10.0
 		// and made available vectorFloat2Value so we invoke
@@ -256,7 +256,7 @@ namespace SpriteKit {
 		}
 #endif // !NET
 
-#if !XAMCORE_4_0
+#if !NET
 		// Apple deprecated floatMatrix4Value in macOS10.12/iOS10.0
 		// and made available matrixFloat4x4Value so we invoke
 		// the right one at runtime depending on which OS version we are running
@@ -283,7 +283,7 @@ namespace SpriteKit {
 					_FloatMatrix4Value = value;
 			}
 		}
-#endif // !XAMCORE_4_0
+#endif // !NET
 	}
 }
 #endif // !WATCH

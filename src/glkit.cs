@@ -38,8 +38,8 @@ using Vector3 = global::OpenTK.Vector3;
 using Vector4 = global::OpenTK.Vector4;
 #if !NET
 using Matrix3 = global::OpenTK.Matrix3;
-#endif // !NET
 using Matrix4 = global::OpenTK.Matrix4;
+#endif // !NET
 using Quaternion = global::OpenTK.Quaternion;
 using MathHelper = global::OpenTK.MathHelper;
 
@@ -256,13 +256,13 @@ namespace GLKit {
 #if !NET
 		[Export ("normalMatrix")]
 		Matrix3 NormalMatrix { get;  }
-#endif
 
 		[Export ("modelviewMatrix", ArgumentSemantic.Assign)]
 		Matrix4 ModelViewMatrix { [Align (16)] get; set; }
 
 		[Export ("projectionMatrix", ArgumentSemantic.Assign)]
 		Matrix4 ProjectionMatrix { [Align (16)] get; set; }
+#endif
 	}
 
 	[Deprecated (PlatformName.iOS, 12,0, message: "Use 'Metal' instead.")]

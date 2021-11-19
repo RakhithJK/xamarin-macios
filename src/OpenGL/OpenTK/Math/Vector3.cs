@@ -945,6 +945,7 @@ namespace OpenTK
 
         #region Transform
 
+#if !NET
         /// <summary>Transform a direction vector by the given Matrix
         /// Assumes the matrix has a bottom row of (0,0,0,1), that is the translation part is ignored.
         /// </summary>
@@ -1105,6 +1106,7 @@ namespace OpenTK
             Vector4.Transform(ref v4, ref mat, out v4);
             result = v4.Xyz;
         }
+#endif // !NET
 
         /// <summary>
         /// Transforms a vector by a quaternion rotation.
@@ -1138,6 +1140,7 @@ namespace OpenTK
             Vector3.Add(ref vec, ref temp, out result);
         }
 
+#if !NET
         /// <summary>Transform a Vector3 by the given Matrix, and project the resulting Vector4 back to a Vector3</summary>
         /// <param name="vec">The vector to transform</param>
         /// <param name="mat">The desired transformation</param>
@@ -1161,7 +1164,7 @@ namespace OpenTK
             result.Y = v.Y / v.W;
             result.Z = v.Z / v.W;
         }
-
+#endif // !NET
         #endregion
 
         #region CalculateAngle
