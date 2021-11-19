@@ -13,7 +13,6 @@ using System.Runtime.InteropServices;
 using Foundation;
 using ObjCRuntime;
 
-using Vector2 = global::OpenTK.Vector2;
 using Vector4 = global::OpenTK.Vector4;
 #if NET
 using Vector2d = global::CoreGraphics.NVector2d;

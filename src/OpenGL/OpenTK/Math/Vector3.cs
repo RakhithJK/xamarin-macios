@@ -83,6 +83,7 @@ namespace OpenTK
             Z = z;
         }
 
+#if !NET
         /// <summary>
         /// Constructs a new Vector3 from the given Vector2.
         /// </summary>
@@ -93,6 +94,7 @@ namespace OpenTK
             Y = v.Y;
             Z = 0.0f;
         }
+#endif
 
         /// <summary>
         /// Constructs a new Vector3 from the given Vector3.
@@ -1197,11 +1199,13 @@ namespace OpenTK
 
         #region Swizzle
 
+#if !NET
         /// <summary>
         /// Gets or sets an OpenTK.Vector2 with the X and Y components of this instance.
         /// </summary>
         [XmlIgnore]
         public Vector2 Xy { get { return new Vector2(X, Y); } set { X = value.X; Y = value.Y; } }
+#endif
 
         #endregion
 

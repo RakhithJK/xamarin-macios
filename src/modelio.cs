@@ -17,12 +17,12 @@ using CoreAnimation;
 using CoreGraphics;
 using SceneKit;
 using Vector2i = global::OpenTK.Vector2i;
-using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
 using Vector3i = global::OpenTK.Vector3i;
 using Vector4 = global::OpenTK.Vector4;
 using Vector4i = global::OpenTK.Vector4i;
 #if NET
+using Vector2 = global::CoreGraphics.NVector2;
 using Vector2d = global::CoreGraphics.NVector2d;
 using NVector3d = global::CoreGraphics.NVector3d;
 using NVector3 = global::CoreGraphics.NVector3;
@@ -36,6 +36,7 @@ using NMatrix4d = global::CoreGraphics.NMatrix4d;
 using Quaterniond = global::CoreGraphics.NQuaterniond;
 using Quaternion = global::CoreGraphics.NQuaternion;
 #else
+using Vector2 = global::OpenTK.Vector2;
 using Vector2d = global::OpenTK.Vector2d;
 using NVector3d = global::OpenTK.NVector3d;
 using NVector3 = global::OpenTK.NVector3;

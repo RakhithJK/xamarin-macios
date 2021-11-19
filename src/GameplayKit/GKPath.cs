@@ -10,7 +10,11 @@
 using System;
 using Foundation;
 using ObjCRuntime;
+#if NET
+using Vector2 = global::CoreGraphics.NVector2;
+#else
 using Vector2 = global::OpenTK.Vector2;
+#endif
 using Vector3 = global::OpenTK.Vector3;
 using System.Runtime.InteropServices;
 

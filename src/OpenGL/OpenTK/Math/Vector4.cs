@@ -124,6 +124,7 @@ namespace OpenTK
             W = w;
         }
 
+#if !NET
         /// <summary>
         /// Constructs a new Vector4 from the given Vector2.
         /// </summary>
@@ -135,7 +136,7 @@ namespace OpenTK
             Z = 0.0f;
             W = 0.0f;
         }
-
+#endif
         /// <summary>
         /// Constructs a new Vector4 from the given Vector3.
         /// The w component is initialized to 0.
@@ -992,13 +993,13 @@ namespace OpenTK
         #endregion
 
         #region Swizzle
-
+#if !NET
         /// <summary>
         /// Gets or sets an OpenTK.Vector2 with the X and Y components of this instance.
         /// </summary>
         [XmlIgnore]
         public Vector2 Xy { get { return new Vector2(X, Y); } set { X = value.X; Y = value.Y; } }
-
+#endif
         /// <summary>
         /// Gets or sets an OpenTK.Vector3 with the X, Y and Z components of this instance.
         /// </summary>
