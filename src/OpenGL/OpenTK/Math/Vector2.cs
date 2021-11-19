@@ -897,6 +897,7 @@ namespace OpenTK
 
         #region Transform
 
+#if !NET
         /// <summary>
         /// Transforms a vector by a quaternion rotation.
         /// </summary>
@@ -925,7 +926,7 @@ namespace OpenTK
 
             result = new Vector2(v.X, v.Y);
         }
-
+#endif
         #endregion
 
         #endregion

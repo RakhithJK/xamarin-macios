@@ -957,7 +957,6 @@ namespace OpenTK
                 vec.X * mat.Row0.Z + vec.Y * mat.Row1.Z + vec.Z * mat.Row2.Z + vec.W * mat.Row3.Z,
                 vec.X * mat.Row0.W + vec.Y * mat.Row1.W + vec.Z * mat.Row2.W + vec.W * mat.Row3.W);
         }
-#endif
         /// <summary>
         /// Transforms a vector by a quaternion rotation.
         /// </summary>
@@ -986,6 +985,7 @@ namespace OpenTK
 
             result = new Vector4(v.X, v.Y, v.Z, v.W);
         }
+#endif // !NET
 
         #endregion
 

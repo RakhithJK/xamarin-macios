@@ -4,14 +4,15 @@ using Foundation;
 using ModelIO;
 using ObjCRuntime;
 
-using Quaternion = global::OpenTK.Quaternion;
 using Vector3 = global::OpenTK.Vector3;
 #if NET
 using Vector2d = global::CoreGraphics.NVector2d;
 using NMatrix4 = global::CoreGraphics.NMatrix4;
+using Quaternion = global::CoreGraphics.NQuaternion;
 #else
 using Vector2d = global::OpenTK.Vector2d;
 using NMatrix4 = global::OpenTK.NMatrix4;
+using Quaternion = global::OpenTK.Quaternion;
 #endif
 
 using System;

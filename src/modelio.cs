@@ -34,6 +34,7 @@ using MatrixFloat4x4 = global::CoreGraphics.NMatrix4;
 using NMatrix4 = global::CoreGraphics.NMatrix4;
 using NMatrix4d = global::CoreGraphics.NMatrix4d;
 using Quaterniond = global::CoreGraphics.NQuaterniond;
+using Quaternion = global::CoreGraphics.NQuaternion;
 #else
 using Vector2d = global::OpenTK.Vector2d;
 using NVector3d = global::OpenTK.NVector3d;
@@ -44,8 +45,8 @@ using MatrixFloat4x4 = global::OpenTK.NMatrix4;
 using NMatrix4 = global::OpenTK.NMatrix4;
 using NMatrix4d = global::OpenTK.NMatrix4d;
 using Quaterniond = global::OpenTK.Quaterniond;
-#endif
 using Quaternion = global::OpenTK.Quaternion;
+#endif
 using MathHelper = global::OpenTK.MathHelper;
 #if MONOMAC
 using AppKit;

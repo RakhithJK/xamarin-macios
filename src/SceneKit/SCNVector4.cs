@@ -31,7 +31,10 @@ using System.Xml.Serialization;
 using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
 using Vector4 = global::OpenTK.Vector4;
+#if NET
+#else
 using Quaternion = global::OpenTK.Quaternion;
+#endif
 using MathHelper = global::OpenTK.MathHelper;
 #if MONOMAC
 #if NET

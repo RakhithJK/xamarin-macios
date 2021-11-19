@@ -40,7 +40,6 @@ using Vector4 = global::OpenTK.Vector4;
 using Matrix3 = global::OpenTK.Matrix3;
 using Matrix4 = global::OpenTK.Matrix4;
 #endif // !NET
-using Quaternion = global::OpenTK.Quaternion;
 using MathHelper = global::OpenTK.MathHelper;
 
 #if MONOMAC

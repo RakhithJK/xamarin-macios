@@ -20,7 +20,6 @@ using Vector3 = global::OpenTK.Vector3;
 using Vector4 = global::OpenTK.Vector4;
 using Vector4i = global::OpenTK.Vector4i;
 using VectorInt4 = global::OpenTK.Vector4i;
-using Quaternion = global::OpenTK.Quaternion;
 using MathHelper = global::OpenTK.MathHelper;
 
 #nullable enable

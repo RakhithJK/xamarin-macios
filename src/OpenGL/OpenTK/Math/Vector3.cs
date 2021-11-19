@@ -1106,7 +1106,6 @@ namespace OpenTK
             Vector4.Transform(ref v4, ref mat, out v4);
             result = v4.Xyz;
         }
-#endif // !NET
 
         /// <summary>
         /// Transforms a vector by a quaternion rotation.
@@ -1140,7 +1139,6 @@ namespace OpenTK
             Vector3.Add(ref vec, ref temp, out result);
         }
 
-#if !NET
         /// <summary>Transform a Vector3 by the given Matrix, and project the resulting Vector4 back to a Vector3</summary>
         /// <param name="vec">The vector to transform</param>
         /// <param name="mat">The desired transformation</param>

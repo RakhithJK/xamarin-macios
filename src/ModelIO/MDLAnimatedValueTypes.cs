@@ -20,6 +20,7 @@ using Vector3d = global::CoreGraphics.NVector3d;
 using Vector4d = global::CoreGraphics.NVector4d;
 using Matrix4 = global::CoreGraphics.NMatrix4;
 using Matrix4d = global::CoreGraphics.NMatrix4d;
+using Quaternion = global::CoreGraphics.NQuaternion;
 using Quaterniond = global::CoreGraphics.NQuaterniond;
 #else
 using Vector2d = global::OpenTK.Vector2d;
@@ -28,10 +29,10 @@ using Vector3d = global::OpenTK.NVector3d;
 using Vector4d = global::OpenTK.Vector4d;
 using Matrix4 = global::OpenTK.NMatrix4;
 using Matrix4d = global::OpenTK.NMatrix4d;
+using Quaternion = global::OpenTK.Quaternion;
 using Quaterniond = global::OpenTK.Quaterniond;
 #endif
 using Vector4 = global::OpenTK.Vector4;
-using Quaternion = global::OpenTK.Quaternion;
 
 #nullable enable
 

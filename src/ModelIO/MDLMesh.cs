@@ -14,11 +14,8 @@ using CoreFoundation;
 using CoreGraphics;
 using ObjCRuntime;
 using Vector2i = global::OpenTK.Vector2i;
-using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
 using Vector3i = global::OpenTK.Vector3i;
-using Vector4 = global::OpenTK.Vector4;
-using Quaternion = global::OpenTK.Quaternion;
 using MathHelper = global::OpenTK.MathHelper;
 
 #nullable enable

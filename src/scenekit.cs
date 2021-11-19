@@ -44,7 +44,6 @@ using NVector3 = global::OpenTK.NVector3;
 using Vector3 = global::OpenTK.NVector3;
 #endif
 using Vector4 = global::OpenTK.Vector4;
-using Quaternion = global::OpenTK.Quaternion;
 
 #if !WATCH
 using CoreAnimation;

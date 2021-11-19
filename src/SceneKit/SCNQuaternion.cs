@@ -29,9 +29,9 @@ using Vector3 = global::OpenTK.Vector3;
 using Matrix3 = global::CoreGraphics.NMatrix3;
 #else
 using Matrix3 = global::OpenTK.Matrix3;
+using Quaternion = global::OpenTK.Quaternion;
 #endif
 using Vector4 = global::OpenTK.Vector4;
-using Quaternion = global::OpenTK.Quaternion;
 using MathHelper = global::OpenTK.MathHelper;
 
 #if MONOMAC
@@ -108,11 +108,13 @@ namespace SceneKit
             if (matrix.R1C0 - matrix.R0C1 < 0) Z = -Z;
         }
 
+#if !NET
 	public SCNQuaternion (Quaternion openTkQuaternion) : this (new SCNVector3 (openTkQuaternion.XYZ), openTkQuaternion.W)
 	{
 		
 	}
-	
+#endif
+
         #endregion
 
         #region Public Members

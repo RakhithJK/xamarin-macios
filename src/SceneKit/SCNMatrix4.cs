@@ -36,11 +36,11 @@ using Vector3d = global::CoreGraphics.NVector3d;
 using Quaterniond = global::CoreGraphics.NQuaterniond;
 #else
 using Vector3d = global::OpenTK.Vector3d;
+using Quaternion = global::OpenTK.Quaternion;
 using Quaterniond = global::OpenTK.Quaterniond;
 #endif
 
 using Vector4 = global::OpenTK.Vector4;
-using Quaternion = global::OpenTK.Quaternion;
 #if MONOMAC
 #if NET
 using pfloat = ObjCRuntime.nfloat;
@@ -787,11 +787,20 @@ namespace SceneKit
         /// </summary>
         /// <param name="q">the quaternion</param>
         /// <returns>A rotation matrix</returns>
+#if NET
+        public static SCNMatrix4 Rotate(SCNQuaternion q)
+#else
         public static SCNMatrix4 Rotate(Quaternion q)
+#endif
         {
 	    SCNMatrix4 result;
+#if NET
+            SCNVector3 axis;
+            pfloat angle;
+#else
             Vector3 axis;
             float angle;
+#endif
             q.ToAxisAngle(out axis, out angle);
             CreateFromAxisAngle(axis, angle, out result);
 	    return result;
