@@ -31,10 +31,16 @@ using System.Runtime.InteropServices;
 using Foundation;
 
 using Vector3 = global::OpenTK.Vector3;
+#if NET
+using Vector3d = global::CoreGraphics.NVector3d;
+using Quaterniond = global::CoreGraphics.NQuaterniond;
+#else
 using Vector3d = global::OpenTK.Vector3d;
+using Quaterniond = global::OpenTK.Quaterniond;
+#endif
+
 using Vector4 = global::OpenTK.Vector4;
 using Quaternion = global::OpenTK.Quaternion;
-using Quaterniond = global::OpenTK.Quaterniond;
 #if MONOMAC
 #if NET
 using pfloat = ObjCRuntime.nfloat;
@@ -801,7 +807,7 @@ namespace SceneKit
             Vector3d axis;
             double angle;
 	    SCNMatrix4 result;
-            q.ToAxisAngle(out axis, out angle);
+	    q.ToAxisAngle(out axis, out angle);
 	    CreateFromAxisAngle(axis, angle, out result);
             return result;
         }

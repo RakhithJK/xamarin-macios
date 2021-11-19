@@ -17,32 +17,35 @@ using CoreAnimation;
 using CoreGraphics;
 using SceneKit;
 using Vector2i = global::OpenTK.Vector2i;
-using Vector2d = global::OpenTK.Vector2d;
 using Vector2 = global::OpenTK.Vector2;
 using Vector3 = global::OpenTK.Vector3;
 using Vector3i = global::OpenTK.Vector3i;
 using Vector4 = global::OpenTK.Vector4;
 using Vector4i = global::OpenTK.Vector4i;
-using Vector4d = global::OpenTK.Vector4d;
 #if NET
+using Vector2d = global::CoreGraphics.NVector2d;
 using NVector3d = global::CoreGraphics.NVector3d;
 using NVector3 = global::CoreGraphics.NVector3;
+using Vector4d = global::CoreGraphics.NVector4d;
 using Matrix4 = global::CoreGraphics.NMatrix4;
 using MatrixFloat2x2 = global::CoreGraphics.NMatrix2;
 using MatrixFloat3x3 = global::CoreGraphics.NMatrix3;
 using MatrixFloat4x4 = global::CoreGraphics.NMatrix4;
 using NMatrix4 = global::CoreGraphics.NMatrix4;
 using NMatrix4d = global::CoreGraphics.NMatrix4d;
+using Quaterniond = global::CoreGraphics.NQuaterniond;
 #else
+using Vector2d = global::OpenTK.Vector2d;
 using NVector3d = global::OpenTK.NVector3d;
 using NVector3 = global::OpenTK.NVector3;
+using Vector4d = global::OpenTK.Vector4d;
 using Matrix4 = global::OpenTK.Matrix4;
 using MatrixFloat4x4 = global::OpenTK.NMatrix4;
 using NMatrix4 = global::OpenTK.NMatrix4;
 using NMatrix4d = global::OpenTK.NMatrix4d;
+using Quaterniond = global::OpenTK.Quaterniond;
 #endif
 using Quaternion = global::OpenTK.Quaternion;
-using Quaterniond = global::OpenTK.Quaterniond;
 using MathHelper = global::OpenTK.MathHelper;
 #if MONOMAC
 using AppKit;
