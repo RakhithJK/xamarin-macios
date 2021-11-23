@@ -23,17 +23,18 @@ SOFTWARE.
  */
 #endregion
 
-using Vector3 = global::OpenTK.Vector3;
 #if NET
-using Vector2 = global::CoreGraphics.NVector2;
+using Vector2 = global::System.Numerics.Vector2;
+using Vector3 = global::System.Numerics.Vector3;
+using Vector4 = global::System.Numerics.Vector4;
 using Matrix3 = global::CoreGraphics.NMatrix3;
 #else
 using Vector2 = global::OpenTK.Vector2;
+using Vector3 = global::OpenTK.Vector3;
+using Vector4 = global::OpenTK.Vector4;
 using Matrix3 = global::OpenTK.Matrix3;
 using Quaternion = global::OpenTK.Quaternion;
 #endif
-using Vector4 = global::OpenTK.Vector4;
-using MathHelper = global::OpenTK.MathHelper;
 
 #if MONOMAC
 #if NET

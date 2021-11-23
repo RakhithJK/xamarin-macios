@@ -38,12 +38,13 @@ using ObjCRuntime;
 using NMatrix4 = global::CoreGraphics.NMatrix4;
 using NVector3 = global::CoreGraphics.NVector3;
 using Vector3 = global::CoreGraphics.NVector3;
+using Vector4 = global::System.Numerics.Vector4;
 #else
 using NMatrix4 = global::OpenTK.NMatrix4;
 using NVector3 = global::OpenTK.NVector3;
 using Vector3 = global::OpenTK.NVector3;
-#endif
 using Vector4 = global::OpenTK.Vector4;
+#endif
 
 #if !WATCH
 using CoreAnimation;

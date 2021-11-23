@@ -44,6 +44,17 @@ namespace OpenTK
 			return !left.Equals (right);
 		}
 
+#if NET
+		public static explicit operator global::System.Numerics.Vector3 (NVector3 value)
+		{
+			return new global::System.Numerics.Vector3 (value.X, value.Y, value.Z);
+		}
+
+		public static explicit operator NVector3 (global::System.Numerics.Vector3 value)
+		{
+			return new NVector3 (value.X, value.Y, value.Z);
+		}
+#else
 		public static explicit operator global::OpenTK.Vector3 (NVector3 value)
 		{
 			return new global::OpenTK.Vector3 (value.X, value.Y, value.Z);
@@ -53,6 +64,7 @@ namespace OpenTK
 		{
 			return new NVector3 (value.X, value.Y, value.Z);
 		}
+#endif
 
 		public override string ToString ()
 		{

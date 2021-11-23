@@ -13,11 +13,11 @@ using System.Runtime.InteropServices;
 using Foundation;
 using ObjCRuntime;
 
-using Vector4 = global::OpenTK.Vector4;
 #if NET
 using Vector2d = global::CoreGraphics.NVector2d;
 using Vector3 = global::CoreGraphics.NVector3;
 using Vector3d = global::CoreGraphics.NVector3d;
+using Vector4 = global::System.Numerics.Vector4;
 using Vector4d = global::CoreGraphics.NVector4d;
 using Matrix4 = global::CoreGraphics.NMatrix4;
 using Matrix4d = global::CoreGraphics.NMatrix4d;
@@ -27,6 +27,7 @@ using Quaterniond = global::CoreGraphics.NQuaterniond;
 using Vector2d = global::OpenTK.Vector2d;
 using Vector3 = global::OpenTK.NVector3;
 using Vector3d = global::OpenTK.NVector3d;
+using Vector4 = global::OpenTK.Vector4;
 using Vector4d = global::OpenTK.Vector4d;
 using Matrix4 = global::OpenTK.NMatrix4;
 using Matrix4d = global::OpenTK.NMatrix4d;

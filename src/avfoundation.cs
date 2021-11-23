@@ -31,6 +31,12 @@
 
 using System.ComponentModel;
 
+#if NET
+using Vector3 = global::System.Numerics.Vector3;
+#else
+using Vector3 = global::OpenTK.Vector3;
+#endif
+
 #if !WATCH
 using AudioUnit;
 using AVKit;

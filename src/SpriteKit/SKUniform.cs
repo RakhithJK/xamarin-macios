@@ -11,15 +11,17 @@ using System;
 using Foundation;
 using ObjCRuntime;
 
-using Vector3 = global::OpenTK.Vector3;
-using Vector4 = global::OpenTK.Vector4;
 #if NET
-using Vector2 = global::CoreGraphics.NVector2;
+using Vector2 = global::System.Numerics.Vector2;
+using Vector3 = global::System.Numerics.Vector3;
+using Vector4 = global::System.Numerics.Vector4;
 using MatrixFloat2x2 = global::CoreGraphics.NMatrix2;
 using MatrixFloat3x3 = global::CoreGraphics.NMatrix3;
 using MatrixFloat4x4 = global::CoreGraphics.NMatrix4;
 #else
 using Vector2 = global::OpenTK.Vector2;
+using Vector3 = global::OpenTK.Vector3;
+using Vector4 = global::OpenTK.Vector4;
 using Matrix2 = global::OpenTK.Matrix2;
 using Matrix3 = global::OpenTK.Matrix3;
 using Matrix4 = global::OpenTK.Matrix4;

@@ -28,15 +28,18 @@ using System;
 using System.Runtime.InteropServices;
 using System.Xml.Serialization;
 
-using Vector3 = global::OpenTK.Vector3;
-using Vector4 = global::OpenTK.Vector4;
 #if NET
-using Vector2 = global::CoreGraphics.NVector2;
+using Vector2 = global::System.Numerics.Vector2;
+using Vector3 = global::System.Numerics.Vector3;
+using Vector4 = global::System.Numerics.Vector4;
 #else
 using Vector2 = global::OpenTK.Vector2;
+using Vector3 = global::OpenTK.Vector3;
+using Vector4 = global::OpenTK.Vector4;
 using Quaternion = global::OpenTK.Quaternion;
-#endif
 using MathHelper = global::OpenTK.MathHelper;
+#endif
+
 #if MONOMAC
 #if NET
 using pfloat = ObjCRuntime.nfloat;
@@ -239,8 +242,12 @@ namespace SceneKit
         {
             get
             {
+#if NET
+                return (pfloat)(1.0f / InverseSqrtFast(X * X + Y * Y + Z * Z + W * W));
+#else
                 return (pfloat)(1.0f / MathHelper.InverseSqrtFast(X * X + Y * Y + Z * Z + W * W));
-            }
+#endif
+     	    }
         }
 
         #endregion
@@ -289,8 +296,12 @@ namespace SceneKit
         /// </summary>
         public void NormalizeFast()
         {
+#if NET
+            pfloat scale = (pfloat)(InverseSqrtFast(X * X + Y * Y + Z * Z + W * W));
+#else
             pfloat scale = (pfloat)(MathHelper.InverseSqrtFast(X * X + Y * Y + Z * Z + W * W));
-            X *= scale;
+#endif
+     	    X *= scale;
             Y *= scale;
             Z *= scale;
             W *= scale;
@@ -704,7 +715,11 @@ namespace SceneKit
         /// <returns>The normalized vector</returns>
         public static SCNVector4 NormalizeFast(SCNVector4 vec)
         {
+#if NET
+            pfloat scale = (pfloat)(InverseSqrtFast(vec.X * vec.X + vec.Y * vec.Y + vec.Z * vec.Z + vec.W * vec.W));
+#else
             pfloat scale = (pfloat)(MathHelper.InverseSqrtFast(vec.X * vec.X + vec.Y * vec.Y + vec.Z * vec.Z + vec.W * vec.W));
+#endif
             vec.X *= scale;
             vec.Y *= scale;
             vec.Z *= scale;
@@ -719,8 +734,12 @@ namespace SceneKit
         /// <param name="result">The normalized vector</param>
         public static void NormalizeFast(ref SCNVector4 vec, out SCNVector4 result)
         {
+#if NET
+            pfloat scale = (pfloat)(InverseSqrtFast(vec.X * vec.X + vec.Y * vec.Y + vec.Z * vec.Z + vec.W * vec.W));
+#else
             pfloat scale = (pfloat)(MathHelper.InverseSqrtFast(vec.X * vec.X + vec.Y * vec.Y + vec.Z * vec.Z + vec.W * vec.W));
-            result.X = vec.X * scale;
+#endif
+     	    result.X = vec.X * scale;
             result.Y = vec.Y * scale;
             result.Z = vec.Z * scale;
             result.W = vec.W * scale;
@@ -1107,6 +1126,46 @@ namespace SceneKit
 		return new Vector4 ((float)source.X, (float)source.Y, (float)source.Z, (float)source.W);
 	}
 
-		
+#if NET
+        /// <summary>
+        /// Returns an approximation of the inverse square root of left number.
+        /// </summary>
+        /// <param name="x">A number.</param>
+        /// <returns>An approximation of the inverse square root of the specified number, with an upper error bound of 0.001</returns>
+        /// <remarks>
+        /// This is an improved implementation of the the method known as Carmack's inverse square root
+        /// which is found in the Quake III source code. This implementation comes from
+        /// http://www.codemaestro.com/reviews/review00000105.html. For the history of this method, see
+        /// http://www.beyond3d.com/content/articles/8/
+        /// </remarks>
+        static float InverseSqrtFast(float x)
+        {
+            unsafe
+            {
+                float xhalf = 0.5f * x;
+                int i = *(int*)&x;              // Read bits as integer.
+                i = 0x5f375a86 - (i >> 1);      // Make an initial guess for Newton-Raphson approximation
+                x = *(float*)&i;                // Convert bits back to float
+                x = x * (1.5f - xhalf * x * x); // Perform left single Newton-Raphson step.
+                return x;
+            }
+        }
+
+        /// <summary>
+        /// Returns an approximation of the inverse square root of left number.
+        /// </summary>
+        /// <param name="x">A number.</param>
+        /// <returns>An approximation of the inverse square root of the specified number, with an upper error bound of 0.001</returns>
+        /// <remarks>
+        /// This is an improved implementation of the the method known as Carmack's inverse square root
+        /// which is found in the Quake III source code. This implementation comes from
+        /// http://www.codemaestro.com/reviews/review00000105.html. For the history of this method, see
+        /// http://www.beyond3d.com/content/articles/8/
+        /// </remarks>
+        static double InverseSqrtFast(double x)
+        {
+            return InverseSqrtFast((float)x);
+	}
+#endif
     }
 }

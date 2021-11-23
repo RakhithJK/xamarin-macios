@@ -1866,7 +1866,6 @@ SHARED_CORE_SOURCES = \
 	Simd/VectorDouble2.cs \
 	Simd/VectorDouble3.cs \
 	Simd/VectorDouble4.cs \
-	Simd/VectorFloat2.cs \
 	Simd/VectorFloat3.cs \
 	Simd/QuaternionFloat.cs \
 	Simd/QuaternionDouble.cs \

@@ -16,7 +16,7 @@ using Foundation;
 
 
 #if NET
-using Vector2 = global::CoreGraphics.NVector2;
+using Vector2 = global::System.Numerics.Vector2;
 #else
 using Vector2 = global::OpenTK.Vector2;
 #endif

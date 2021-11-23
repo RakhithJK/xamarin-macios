@@ -11,11 +11,13 @@ using System;
 using Foundation;
 using ObjCRuntime;
 #if NET
-using Vector2 = global::CoreGraphics.NVector2;
+using Vector2 = global::System.Numerics.Vector2;
+using Vector3 = global::System.Numerics.Vector3;
 #else
 using Vector2 = global::OpenTK.Vector2;
-#endif
 using Vector3 = global::OpenTK.Vector3;
+#endif
+
 using System.Runtime.InteropServices;
 
 namespace GameplayKit {

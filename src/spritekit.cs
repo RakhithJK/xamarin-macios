@@ -25,12 +25,13 @@ using SceneKit;
 using Metal;
 #endif
 
-using Vector3 = global::OpenTK.Vector3;
 #if NET
 using MatrixFloat2x2 = global::CoreGraphics.NMatrix2;
 using MatrixFloat3x3 = global::CoreGraphics.NMatrix3;
 using MatrixFloat4x4 = global::CoreGraphics.NMatrix4;
-using Vector2 = global::CoreGraphics.NVector2;
+using Vector2 = global::System.Numerics.Vector2;
+using Vector3 = global::System.Numerics.Vector3;
+using Vector4 = global::System.Numerics.Vector4;
 using VectorFloat3 = global::CoreGraphics.NVector3;
 using Quaternion = global::CoreGraphics.NQuaternion;
 #else
@@ -41,10 +42,11 @@ using MatrixFloat2x2 = global::OpenTK.NMatrix2;
 using MatrixFloat3x3 = global::OpenTK.NMatrix3;
 using MatrixFloat4x4 = global::OpenTK.NMatrix4;
 using Vector2 = global::OpenTK.Vector2;
+using Vector3 = global::OpenTK.Vector3;
+using Vector4 = global::OpenTK.Vector4;
 using VectorFloat3 = global::OpenTK.NVector3;
 using Quaternion = global::OpenTK.Quaternion;
 #endif
-using Vector4 = global::OpenTK.Vector4;
 
 #if MONOMAC
 using AppKit;

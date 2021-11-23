@@ -33,13 +33,15 @@ using CoreGraphics;
 using CoreFoundation;
 using ModelIO;
 
+#if NET
+using Vector3 = global::System.Numerics.Vector3;
+using Vector4 = global::System.Numerics.Vector4;
+#else
 using Vector3 = global::OpenTK.Vector3;
 using Vector4 = global::OpenTK.Vector4;
-#if !NET
 using Matrix3 = global::OpenTK.Matrix3;
 using Matrix4 = global::OpenTK.Matrix4;
-#endif // !NET
-using MathHelper = global::OpenTK.MathHelper;
+#endif // NET 
 
 #if MONOMAC
 #if NET

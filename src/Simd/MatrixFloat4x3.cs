@@ -12,7 +12,11 @@
 using System;
 using System.Runtime.InteropServices;
 
+#if NET
+using VectorFloat4=global::System.Numerics.Vector4;
+#else
 using VectorFloat4=global::OpenTK.Vector4;
+#endif
 
 #if NET
 namespace CoreGraphics

@@ -14,9 +14,12 @@ using CoreFoundation;
 using CoreGraphics;
 using ObjCRuntime;
 using Vector2i = global::OpenTK.Vector2i;
-using Vector3 = global::OpenTK.Vector3;
 using Vector3i = global::OpenTK.Vector3i;
-using MathHelper = global::OpenTK.MathHelper;
+#if NET
+using Vector3 = global::System.Numerics.Vector3;
+#else
+using Vector3 = global::OpenTK.Vector3;
+#endif
 
 #nullable enable
 
