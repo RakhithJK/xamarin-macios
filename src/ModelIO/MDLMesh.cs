@@ -13,12 +13,14 @@ using Foundation;
 using CoreFoundation;
 using CoreGraphics;
 using ObjCRuntime;
-using Vector2i = global::OpenTK.Vector2i;
-using Vector3i = global::OpenTK.Vector3i;
 #if NET
+using Vector2i = global::CoreGraphics.NVector2i;
 using Vector3 = global::System.Numerics.Vector3;
+using Vector3i = global::CoreGraphics.NVector3i;
 #else
+using Vector2i = global::OpenTK.Vector2i;
 using Vector3 = global::OpenTK.Vector3;
+using Vector3i = global::OpenTK.Vector3i;
 #endif
 
 #nullable enable

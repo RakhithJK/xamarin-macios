@@ -67,7 +67,6 @@ using GameplayKit;
 
 #if MONOMAC
 using AppKit;
-using OpenTK;
 
 using GLContext = global::OpenGL.CGLContext;
 #else

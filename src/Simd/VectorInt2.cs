@@ -1,6 +1,5 @@
 //
-// VectorDouble2.cs:
-//     This represents the native vector_double2 type, which is 16 bytes.
+// VectorInt2.cs:
 //
 //
 // Authors:
@@ -16,23 +15,23 @@ using System.Runtime.InteropServices;
 namespace CoreGraphics
 {
 	[StructLayout (LayoutKind.Sequential)]
-	public struct NVector2d : IEquatable<NVector2d>
+	public struct NVector2i : IEquatable<NVector2i>
 	{
-		public double X;
-		public double Y;
+		public int X;
+		public int Y;
 
-		public NVector2d (double x, double y)
+		public NVector2i (int x, int y)
 		{
 			X = x;
 			Y = y;
 		}
 
-		public static bool operator == (NVector2d left, NVector2d right)
+		public static bool operator == (NVector2i left, NVector2i right)
 		{
 			return left.Equals (right);
 		}
 
-		public static bool operator != (NVector2d left, NVector2d right)
+		public static bool operator != (NVector2i left, NVector2i right)
 		{
 			return !left.Equals (right);
 		}
@@ -49,13 +48,13 @@ namespace CoreGraphics
 
 		public override bool Equals (object obj)
 		{
-			if (!(obj is NVector2d))
+			if (!(obj is NVector2i))
 				return false;
 
-			return Equals ((NVector2d) obj);
+			return Equals ((NVector2i) obj);
 		}
 
-		public bool Equals (NVector2d other)
+		public bool Equals (NVector2i other)
 		{
 			return X == other.X && Y == other.Y;
 		}

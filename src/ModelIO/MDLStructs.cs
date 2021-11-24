@@ -18,11 +18,12 @@ using ObjCRuntime;
 #if NET
 using Vector3 = global::System.Numerics.Vector3;
 using Vector4 = global::System.Numerics.Vector4;
+using VectorInt4 = global::CoreGraphics.NVector4i;
 #else
 using Vector3 = global::OpenTK.Vector3;
 using Vector4 = global::OpenTK.Vector4;
-#endif
 using VectorInt4 = global::OpenTK.Vector4i;
+#endif
 
 #nullable enable
 
