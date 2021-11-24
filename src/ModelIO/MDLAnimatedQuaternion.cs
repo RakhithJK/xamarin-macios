@@ -21,7 +21,7 @@ using Vector4 = global::System.Numerics.Vector4;
 using Vector4d = global::CoreGraphics.NVector4d;
 using Matrix4 = global::CoreGraphics.NMatrix4;
 using Matrix4d = global::CoreGraphics.NMatrix4d;
-using Quaternion = global::CoreGraphics.NQuaternion;
+using Quaternion = global::System.Numerics.Quaternion;
 using Quaterniond = global::CoreGraphics.NQuaterniond;
 #else
 using Vector2d = global::OpenTK.Vector2d;

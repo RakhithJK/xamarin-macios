@@ -8,7 +8,7 @@ using ObjCRuntime;
 using Vector2d = global::CoreGraphics.NVector2d;
 using Vector3 = global::System.Numerics.Vector3;
 using NMatrix4 = global::CoreGraphics.NMatrix4;
-using Quaternion = global::CoreGraphics.NQuaternion;
+using Quaternion = global::System.Numerics.Quaternion;
 #else
 using Vector2d = global::OpenTK.Vector2d;
 using Vector3 = global::OpenTK.Vector3;

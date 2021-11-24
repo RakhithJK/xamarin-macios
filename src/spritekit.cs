@@ -33,7 +33,7 @@ using Vector2 = global::System.Numerics.Vector2;
 using Vector3 = global::System.Numerics.Vector3;
 using Vector4 = global::System.Numerics.Vector4;
 using VectorFloat3 = global::CoreGraphics.NVector3;
-using Quaternion = global::CoreGraphics.NQuaternion;
+using Quaternion = global::System.Numerics.Quaternion;
 #else
 using Matrix2 = global::OpenTK.Matrix2;
 using Matrix3 = global::OpenTK.Matrix3;
