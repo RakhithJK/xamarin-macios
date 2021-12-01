@@ -27,7 +27,7 @@ using Vector3i = global::CoreGraphics.NVector3i;
 using Vector4 = global::System.Numerics.Vector4;
 using Vector4d = global::CoreGraphics.NVector4d;
 using Vector4i = global::CoreGraphics.NVector4i;
-using Matrix4 = global::CoreGraphics.NMatrix4;
+using Matrix4 = global::System.Numerics.Matrix4x4;
 using MatrixFloat2x2 = global::CoreGraphics.NMatrix2;
 using MatrixFloat3x3 = global::CoreGraphics.NMatrix3;
 using MatrixFloat4x4 = global::CoreGraphics.NMatrix4;
@@ -1528,7 +1528,7 @@ namespace ModelIO {
 		[Export ("overlap")]
 		float Overlap { get; set; }
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use 'LeftViewMatrix4x4' instead.")]
 #endif
 		[Export ("leftViewMatrix")]
@@ -1537,7 +1537,7 @@ namespace ModelIO {
 			get;
 		}
 
-#if !XAMCORE_4_0
+#if !NET
 		[Sealed]
 		[Export ("leftViewMatrix")]
 		MatrixFloat4x4 LeftViewMatrix4x4 {
@@ -1546,7 +1546,7 @@ namespace ModelIO {
 		}
 #endif
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use 'RightViewMatrix4x4' instead.")]
 #endif
 		[Export ("rightViewMatrix")]
@@ -1555,7 +1555,7 @@ namespace ModelIO {
 			get;
 		}
 
-#if !XAMCORE_4_0
+#if !NET
 		[Sealed]
 		[Export ("rightViewMatrix")]
 		MatrixFloat4x4 RightViewMatrix4x4 {
@@ -1564,7 +1564,7 @@ namespace ModelIO {
 		}
 #endif
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use 'LeftProjectionMatrix4x4' instead.")]
 #endif
 		[Export ("leftProjectionMatrix")]
@@ -1573,7 +1573,7 @@ namespace ModelIO {
 			get;
 		}
 
-#if !XAMCORE_4_0
+#if !NET
 		[Sealed]
 		[Export ("leftProjectionMatrix")]
 		MatrixFloat4x4 LeftProjectionMatrix4x4 {
@@ -1582,7 +1582,7 @@ namespace ModelIO {
 		}
 #endif
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use 'RightProjectionMatrix4x4' instead.")]
 #endif
 		[Export ("rightProjectionMatrix")]
@@ -1591,7 +1591,7 @@ namespace ModelIO {
 			get;
 		}
 
-#if !XAMCORE_4_0
+#if !NET
 		[Sealed]
 		[Export ("rightProjectionMatrix")]
 		MatrixFloat4x4 RightProjectionMatrix4x4 {
@@ -1852,7 +1852,7 @@ namespace ModelIO {
 		NativeHandle Constructor (MatrixFloat4x4 matrix);
 #endif
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use the '(MatrixFloat4x4, bool)' overload instead.")]
 #endif
 		[iOS (10,0)]
@@ -1889,14 +1889,14 @@ namespace ModelIO {
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
 		Vector3 GetRotation (double atTime);
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use 'GetRotationMatrix4x4' instead.")]
 #endif
 		[Export ("rotationMatrixAtTime:")]
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
 		Matrix4 GetRotationMatrix (double atTime);
 
-#if !XAMCORE_4_0
+#if !NET
 		[Sealed]
 		[Export ("rotationMatrixAtTime:")]
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
@@ -1922,12 +1922,12 @@ namespace ModelIO {
 		[iOS (10,3), TV (10,2), Mac (10,12,4)]
 		[Export ("setMatrix:forTime:")]
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use 'SetMatrix4x4' instead.")]
 #endif
 		void SetMatrix (Matrix4 matrix, double time);
 
-#if !XAMCORE_4_0
+#if !NET
 		[Sealed]
 		[iOS (10,3), TV (10,2), Mac (10,12,4)]
 		[Export ("setMatrix:forTime:")]
@@ -1983,7 +1983,7 @@ namespace ModelIO {
 		[iOS (10,0)]
 		[Mac (10,12)]
 		[TV (10,0)]
-#if XAMCORE_4_0
+#if NET
 		[Abstract]
 #endif
 		[Export ("resetsTransform")]
@@ -1999,7 +1999,7 @@ namespace ModelIO {
 
 		// Added in iOS 10 SDK but it is supposed to be present in iOS 9.
 		[Mac (10,12)]
-#if XAMCORE_4_0
+#if NET
 		[Abstract]
 #endif
 		[Export ("keyTimes", ArgumentSemantic.Copy)]
@@ -2017,7 +2017,7 @@ namespace ModelIO {
 		[MarshalDirective (NativePrefix = "xamarin_simd__", Library = "__Internal")]
 		Matrix4 GetLocalTransform (double atTime);
 
-#if !XAMCORE_4_0
+#if !NET
 		[Obsolete ("Use 'CreateGlobalTransform4x4' instead.")]
 #endif
 		[Static]

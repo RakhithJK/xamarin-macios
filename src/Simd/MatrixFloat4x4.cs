@@ -292,7 +292,26 @@ namespace OpenTK
 			return !left.Equals (right);
 		}
 
-#if !NET
+#if NET
+		public static explicit operator global::System.Numerics.Matrix4x4 (NMatrix4 value)
+		{
+			return new global::System.Numerics.Matrix4x4 (
+				value.M11, value.M12, value.M13, value.M14,
+				value.M21, value.M22, value.M23, value.M24,
+				value.M31, value.M32, value.M33, value.M34,
+				value.M41, value.M42, value.M43, value.M44);
+		}
+
+		public static explicit operator NMatrix4 (global::System.Numerics.Matrix4x4 value)
+		{
+			return new NMatrix4 (
+				value.M11, value.M12, value.M13, value.M14,
+				value.M21, value.M22, value.M23, value.M24,
+				value.M31, value.M32, value.M33, value.M34,
+				value.M41, value.M42, value.M43, value.M44);
+		}
+
+#else
 		public static explicit operator global::OpenTK.Matrix4 (NMatrix4 value)
 		{
 			return new global::OpenTK.Matrix4 (

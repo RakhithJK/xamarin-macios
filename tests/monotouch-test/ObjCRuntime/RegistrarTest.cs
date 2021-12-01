@@ -37,7 +37,6 @@ using CoreLocation;
 using Contacts;
 #endif
 using WebKit;
-using OpenTK;
 using NUnit.Framework;
 using Bindings.Test;
 

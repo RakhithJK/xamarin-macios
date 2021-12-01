@@ -31,6 +31,14 @@ namespace CoreGraphics
 			this.w = w;
 		}
 
+		public NQuaterniond (NVector3d xyz, double w)
+		{
+			x = xyz.X;
+			y = xyz.Y;
+			z = xyz.Z;
+			this.w = w;
+		}
+
 		public NVector3d Xyz
 		{
 		    get => new NVector3d(x, y, z);

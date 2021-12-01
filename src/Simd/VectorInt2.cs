@@ -58,6 +58,8 @@ namespace CoreGraphics
 		{
 			return X == other.X && Y == other.Y;
 		}
+
+		public static readonly NVector2i Zero = new NVector2i(0, 0);
 	}
 }
 #endif // NET
